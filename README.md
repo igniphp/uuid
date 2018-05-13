@@ -5,6 +5,11 @@
 
 RFC-compliant Universally Unique Identifiers v5 generator.
 
+## Installation
+```
+composer require igniphp/uuid
+```
+
 ### API
 
 #### `generate(): string`
