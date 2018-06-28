@@ -25,12 +25,21 @@ final class UuidGenerator
 
     public static function toShort($uuid): string
     {
-        return Base58::encode(self::toBinary($uuid));
+        $binary = self::toBinary($uuid);
+        if (function_exists('base58_encode')) {
+            return base58_encode($binary);
+        }
+
+        return Base58::encode($binary);
     }
 
     public static function fromShort(string $uuid): string
     {
-        $uuid = Base58::decode($uuid);
+        if (function_exists('base58_decode')) {
+            $uuid = base58_decode($uuid);
+        } else {
+            $uuid = Base58::decode($uuid);
+        }
         $uuid = implode('', unpack("h*", $uuid));
 
         return substr($uuid, 0, 8) . '-' .

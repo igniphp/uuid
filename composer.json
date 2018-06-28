@@ -9,6 +9,9 @@
       "email": "dawid.kraczkowski@gmail.com"
     }
   ],
+  "suggest": {
+    "ext-base58": "for better performance"
+  },
   "require": {
     "php": "^7.1.0",
     "igniphp/base58": ">=1.0.0"
@@ -19,12 +22,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Igni\\Utils\\": "src/"
+      "Igni\\Util\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "IgniTest\\Unit\\Utils\\": "tests/"
+      "IgniTest\\Unit\\Util\\": "tests/"
     }
   }
 }
