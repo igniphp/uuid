@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace IgniTest\Unit\Utils;
+namespace IgniTest\Unit\Util;
 
-use Igni\Utils\Uuid;
+use Igni\Util\UuidGenerator;
 use PHPUnit\Framework\TestCase;
 
-class UuidTest extends TestCase
+class UuidGeneratorTest extends TestCase
 {
     public function testGenerate(): void
     {
         for ($i = 0; $i < 1000; $i++) {
-            $uuid = Uuid::generate();
+            $uuid = UuidGenerator::generate();
             self::assertSame(36, strlen($uuid));
             self::assertEquals(1, preg_match('#^\w{8}-\w{4}-\w{4}-\w{4}-\w{12}$#', $uuid));
         }
@@ -19,7 +19,7 @@ class UuidTest extends TestCase
     public function testGenerateShort(): void
     {
         for ($i = 0; $i < 1000; $i++) {
-            $uuid = Uuid::generateShort();
+            $uuid = UuidGenerator::generateShort();
             self::assertLessThanOrEqual(22, strlen($uuid));
             self::assertGreaterThanOrEqual(21, strlen($uuid));
         }
@@ -28,11 +28,11 @@ class UuidTest extends TestCase
     public function testFromShortToShort(): void
     {
         for ($i = 0; $i < 10000; $i++) {
-            $long = Uuid::generate();
-            $short = Uuid::toShort($long);
+            $long = UuidGenerator::generate();
+            $short = UuidGenerator::toShort($long);
 
-            self::assertSame($long, Uuid::fromShort($short));
-            self::assertSame($short, Uuid::toShort($long));
+            self::assertSame($long, UuidGenerator::fromShort($short));
+            self::assertSame($short, UuidGenerator::toShort($long));
         }
     }
 }

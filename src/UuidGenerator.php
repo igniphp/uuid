@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Igni\Utils;
+namespace Igni\Util;
 
 use Igni\Crypto\Base58;
 
-final class Uuid
+final class UuidGenerator
 {
     private function __construct()
     {
