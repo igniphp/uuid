@@ -1,7 +1,7 @@
 # ![Igni logo](https://github.com/igniphp/common/blob/master/logo/full.svg)
 [![Build Status](https://travis-ci.org/igniphp/uuid.svg?branch=master)](https://travis-ci.org/igniphp/uuid)
 
-## Igni\Util\Uuid
+## Igni\Util\UuidGenerator
 
 RFC-compliant Universally Unique Identifiers v5 generator.
 
